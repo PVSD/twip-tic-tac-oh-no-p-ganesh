@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-	    Scanner kb = new Scanner(System.in);
-	    System.out.println("Let's play Tic-Tac-Toe!");
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Let's play Tic-Tac-Toe!");
         System.out.println("Our board will look like this, " +
                 "with each number representing that spot on the board:");
         System.out.println(" 1 | 2 | 3 \n-----------\n 4 | 5 | 6 \n-----------\n 7 | 8 | 9 ");
@@ -24,47 +24,37 @@ public class Main {
             System.out.println("Okay, You're X's, I'm O's, I go first.");
             user = "X";
             comp = "O";
-            System.out.println( board.turn("O", 1));
+            System.out.println(board.turn("O", 1));
 
-        }
-        else {
+        } else {
             System.out.println("Okay, you're O's, I'm X's, you go first.");
             user = "O";
             comp = "X";
         }
 
-        while (!game){
+        while (!game) {
 
-            if (ff%2 == 0) {
+            if (ff % 2 == 0) {
+
                 System.out.println("\nEnter the corresponding number for where you would like to go.");
-                System.out.print(board.turn(user, kb.nextInt()));
+                System.out.println(board.turn(user, kb.nextInt()));
                 ff++;
             }
-            else if (ff%2 == 1) {
-                if (user.equalsIgnoreCase("X")) {
-                    if (!board.check(9))
-                        System.out.print("\n" + board.turn(comp, 9));
-                    else if (!board.check(5))
-                        System.out.println("\n" + board.turn(comp, 5));
-                    else if (!board.check(3))
-                        System.out.println("\n" + board.turn(comp, 3));
-                    else if (!board.check(7))
-                        System.out.println("\n" + board.turn(comp, 7));
-                    else if (!board.check(4))
-                        System.out.println("\n" + board.turn(comp, 4));
-                    else if (!board.check(2))
-                        System.out.println("\n" + board.turn(comp, 2));
-                    else if (!board.check(6))
-                        System.out.println("\n" + board.turn(comp, 6));
-                    else if (!board.check(8))
-                        System.out.println("\n" + board.turn(comp, 8));
-                } else if (user.equalsIgnoreCase("O") && !board.check(5))
-                    System.out.println("\n" + board.turn(comp, 5));
-                ff ++;
-            }
-            game = board.endCheck();
-        }
 
-        System.out.println("\nThanks for playing!");
+             else if (ff % 2 == 1) {
+                if (user.equalsIgnoreCase("o") && !board.check(5))
+                    System.out.println(board.turn(comp, 5));
+                else if (user.equalsIgnoreCase("X") && !board.check(3))
+                    System.out.println(board.turn(comp, 3));
+                else
+                    System.out.println(board.turn(comp, board.compTurn()));
+                ff++;
+             }
+
+            game = board.endCheck();
     }
+
+        System.out.println("Thanks for playing!");
+
+}
 }
