@@ -42,12 +42,7 @@ public class Main {
             }
 
              else if (ff % 2 == 1) {
-                if (user.equalsIgnoreCase("o") && !board.check(5))
-                    System.out.println(board.turn(comp, 5));
-                else if (user.equalsIgnoreCase("X") && !board.check(3))
-                    System.out.println(board.turn(comp, 3));
-                else
-                    System.out.println(board.turn(comp, board.compTurn()));
+                System.out.println(board.turn(comp, board.compTurn(comp)));
                 ff++;
              }
 
